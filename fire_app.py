@@ -15,7 +15,7 @@ except ImportError:
 # Page Config
 # =====================================================
 st.set_page_config(
-    page_title="Free FIRE Dashboard",
+    page_title="FIRE Dashboard",
     page_icon="🔥",
     layout="wide"
 )
@@ -433,7 +433,7 @@ def rule_based_assistant(
 
 
 def display_rule_based_reply(reply):
-    st.subheader("Free Assistant Reply")
+    st.subheader("Financial Assistant Reply")
 
     st.write(f"**Overall view:** {reply['final_view']}")
 
@@ -563,11 +563,10 @@ level = fire_level(score)
 # =====================================================
 # Main Dashboard
 # =====================================================
-st.title("🔥 Free FIRE Dashboard with Built-in Assistant")
+st.title("🔥 FIRE Dashboard")
 
 st.write(
-    "This version has no OpenAI API, no API key, and no AI cost. "
-    "It uses built-in rules to analyse your FIRE score, spending, and saving opportunities."
+    "Track your income, expenses, FIRE progress, credit card spending, and saving opportunities."
 )
 
 col1, col2, col3, col4 = st.columns(4)
@@ -872,14 +871,13 @@ if uploaded_file is not None:
 # =====================================================
 # Free Built-in Assistant
 # =====================================================
-st.subheader("🤖 Free Built-in Financial Assistant")
+st.subheader("🤖 Financial Assistant")
 
 st.write(
-    "This assistant does not use ChatGPT API. It gives advice based on rules, your FIRE numbers, "
-    "and uploaded spending categories."
+    "Get quick insights based on your FIRE numbers and uploaded spending categories."
 )
 
-if st.button("Generate Free Financial Analysis"):
+if st.button("Generate Financial Analysis"):
     reply = rule_based_assistant(
         currency=currency,
         monthly_income=monthly_income,
@@ -983,5 +981,5 @@ if question:
 st.info(
     "This is a planning tool only. It does not provide licensed financial advice. "
     "PDF reading works best with selectable text/table PDFs. Scanned PDFs may need OCR. "
-    "This free assistant uses rules and calculations only, so there is no OpenAI API charge."
+    "The assistant uses built-in calculations and category rules."
 )
