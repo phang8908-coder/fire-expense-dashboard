@@ -468,6 +468,10 @@ def display_rule_based_reply(reply):
 # =====================================================
 st.sidebar.title("🔥 FIRE Inputs")
 
+st.sidebar.caption(
+    "Demo values use general Malaysia-style example numbers. Replace them with your own figures."
+)
+
 currency = st.sidebar.selectbox(
     "Currency",
     ["RM", "$", "SGD"],
@@ -476,37 +480,37 @@ currency = st.sidebar.selectbox(
 
 monthly_income = st.sidebar.number_input(
     "Monthly income",
-    min_value=0.0,
-    value=20000.0,
-    step=500.0
+    min_value=3200.0,
+    value=3200.0,
+    step=100.0
 )
 
 monthly_expenses = st.sidebar.number_input(
     "Monthly expenses",
-    min_value=0.0,
-    value=8000.0,
-    step=500.0
+    min_value=2400.0,
+    value=2400.0,
+    step=100.0
 )
 
 current_net_worth = st.sidebar.number_input(
     "Current net worth / investment portfolio",
-    min_value=0.0,
-    value=300000.0,
-    step=10000.0
+    min_value=20000.0,
+    value=20000.0,
+    step=1000.0
 )
 
 emergency_fund = st.sidebar.number_input(
     "Emergency fund amount",
-    min_value=0.0,
-    value=50000.0,
-    step=1000.0
+    min_value=6000.0,
+    value=6000.0,
+    step=500.0
 )
 
 monthly_debt_payment = st.sidebar.number_input(
     "Monthly debt payment",
-    min_value=0.0,
-    value=2000.0,
-    step=500.0
+    min_value=500.0,
+    value=500.0,
+    step=100.0
 )
 
 annual_return_percent = st.sidebar.slider(
@@ -565,9 +569,20 @@ level = fire_level(score)
 # =====================================================
 st.title("🔥 FIRE Dashboard")
 
+st.caption(
+    "Example values are based on general Malaysia salary ranges. Replace them with your own numbers for personal planning."
+)
+
 st.write(
     "Track your income, expenses, FIRE progress, credit card spending, and saving opportunities."
 )
+
+with st.expander("Privacy reminder before uploading statements"):
+    st.write(
+        "Before uploading a credit card or bank statement, remove sensitive information such as full card number, "
+        "IC/passport number, address, phone number, email, bank account number, passwords, and security codes. "
+        "This app processes uploads for analysis and does not intentionally save uploaded statements."
+    )
 
 col1, col2, col3, col4 = st.columns(4)
 
@@ -633,14 +648,14 @@ st.subheader("Manual Monthly Expense Breakdown")
 manual_col1, manual_col2 = st.columns(2)
 
 with manual_col1:
-    housing = st.number_input("Housing / Mortgage / Rent", min_value=0.0, value=3000.0, step=100.0)
-    food = st.number_input("Food & Groceries", min_value=0.0, value=1500.0, step=100.0)
-    transport = st.number_input("Transport / Car / Petrol", min_value=0.0, value=1200.0, step=100.0)
+    housing = st.number_input("Housing / Rent", min_value=800.0, value=800.0, step=50.0)
+    food = st.number_input("Food & Groceries", min_value=700.0, value=700.0, step=50.0)
+    transport = st.number_input("Transport / Petrol", min_value=300.0, value=300.0, step=50.0)
     insurance = st.number_input("Insurance", min_value=0.0, value=800.0, step=100.0)
 
 with manual_col2:
-    family = st.number_input("Family / Parents / Kids", min_value=0.0, value=1000.0, step=100.0)
-    lifestyle = st.number_input("Lifestyle / Shopping / Entertainment", min_value=0.0, value=1000.0, step=100.0)
+    family = st.number_input("Family Support", min_value=200.0, value=200.0, step=50.0)
+    lifestyle = st.number_input("Lifestyle / Shopping", min_value=150.0, value=150.0, step=50.0)
     medical = st.number_input("Medical", min_value=0.0, value=500.0, step=100.0)
     others = st.number_input("Others", min_value=0.0, value=500.0, step=100.0)
 
